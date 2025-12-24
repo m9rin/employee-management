@@ -18,7 +18,11 @@ public class SectorModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "setor")
     private String name;
+
+    @Column(name = "time")
     private String description;
 
     @OneToMany(mappedBy = "sectors")

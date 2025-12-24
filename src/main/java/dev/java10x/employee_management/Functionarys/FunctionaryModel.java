@@ -19,6 +19,8 @@ public class FunctionaryModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome")
     private String name;
 
     @Column(unique = true)
@@ -26,9 +28,17 @@ public class FunctionaryModel {
 
     @Column(unique = true)
     private String email;
+
+    @Column(name = "cargo")
     private String position;
+
+    @Column(name = "salario")
     private BigDecimal salary;
+
+    @Column(name = "data_admissao")
     private LocalDate dateAdmission;
+
+    @Column(name = "ativo")
     private boolean active;
 
     @ManyToOne
