@@ -1,4 +1,4 @@
-package dev.java10x.employee_management;
+package dev.java10x.employee_management.Functionarys;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

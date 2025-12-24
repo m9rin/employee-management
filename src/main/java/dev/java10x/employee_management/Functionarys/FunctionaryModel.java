@@ -1,7 +1,9 @@
-package dev.java10x.employee_management;
+package dev.java10x.employee_management.Functionarys;
 
+import dev.java10x.employee_management.Sectors.SectorModel;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -15,8 +17,13 @@ public class FunctionaryModel {
     private String cpf;
     private String email;
     private String position;
+    private BigDecimal salary;
     private LocalDate dateAdmission;
     private boolean active;
+
+    @ManyToOne
+    @JoinColumn(name = "sectors_id")
+    private SectorModel sectors;
 
     public FunctionaryModel() {
     }
