@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping
-public class Controller {
+public class FunctionaryController {
     @GetMapping("/registration")
     public String registration() {
         return "Test Test Test";
