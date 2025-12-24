@@ -2,11 +2,17 @@ package dev.java10x.employee_management.Sectors;
 
 import dev.java10x.employee_management.Functionarys.FunctionaryModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_sectors")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class SectorModel {
 
     @Id
@@ -17,36 +23,4 @@ public class SectorModel {
 
     @OneToMany(mappedBy = "sectors")
     private List<FunctionaryModel> functionarys;
-
-    public SectorModel() {
-    }
-
-    public SectorModel(String name, String description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
