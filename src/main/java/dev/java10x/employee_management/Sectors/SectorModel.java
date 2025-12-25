@@ -17,7 +17,7 @@ public class SectorModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(name = "setor")
     private String name;

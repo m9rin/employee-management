@@ -18,7 +18,7 @@ public class FunctionaryModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @Column(name = "nome")
     private String name;
@@ -42,6 +42,6 @@ public class FunctionaryModel {
     private boolean active;
 
     @ManyToOne
-    @JoinColumn(name = "sectors_id")
+    @JoinColumn(name = "setor_id")
     private SectorModel sectors;
 }
