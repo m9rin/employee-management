@@ -1,5 +1,6 @@
 package dev.java10x.employee_management.Sectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.employee_management.Functionarys.FunctionaryModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,5 +27,6 @@ public class SectorModel {
     private String description;
 
     @OneToMany(mappedBy = "sectors")
+    @JsonIgnore
     private List<FunctionaryModel> functionarys;
 }
