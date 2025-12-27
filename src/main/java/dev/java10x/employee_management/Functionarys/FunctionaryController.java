@@ -1,9 +1,6 @@
 package dev.java10x.employee_management.Functionarys;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,11 +14,6 @@ public class FunctionaryController {
         this.functionaryService = functionaryService;
     }
 
-    @GetMapping("/registration")
-    public String registration() {
-        return "Test Test Test";
-    }
-
     @GetMapping("/list")
     public List<FunctionaryModel> listFunctionary() {
         return functionaryService.listFunctionary();
@@ -30,5 +22,16 @@ public class FunctionaryController {
     @GetMapping("/list/{id}")
     public FunctionaryModel functionaryById(@PathVariable long id) {
         return functionaryService.functionaryById(id);
+    }
+
+    @PostMapping("/register")
+    public FunctionaryModel register(@RequestBody FunctionaryModel functionary) {
+        return functionaryService.register(functionary);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable long id) {
+        functionaryService.delete(id);
+        return "Functionary deleted!";
     }
 }

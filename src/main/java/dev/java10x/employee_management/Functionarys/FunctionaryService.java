@@ -21,6 +21,13 @@ public class FunctionaryService {
     public FunctionaryModel functionaryById(long id) {
         Optional<FunctionaryModel> functionaryById = functionaryRepository.findById(id);
         return functionaryById.orElse(null);
+    }
 
+    public FunctionaryModel register(FunctionaryModel functionary) {
+        return functionaryRepository.save(functionary);
+    }
+
+    public void delete(long id) {
+        functionaryRepository.deleteById(id);
     }
 }

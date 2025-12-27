@@ -1,9 +1,6 @@
 package dev.java10x.employee_management.Sectors;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,11 +14,6 @@ public class SectorController {
         this.sectorService = sectorService;
     }
 
-    @GetMapping("/sector")
-    public String sector() {
-        return "Test, Test, Testing!";
-    }
-
     @GetMapping("/list")
     public List<SectorModel> listSector() {
         return sectorService.listSector();
@@ -30,5 +22,16 @@ public class SectorController {
     @GetMapping("/list/{id}")
     public SectorModel sectorById(@PathVariable long id) {
         return sectorService.sectorById(id);
+    }
+
+    @PostMapping("/register")
+    public SectorModel sectorRegister(@RequestBody SectorModel sector) {
+        return sectorService.sectorRegister(sector);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable long id) {
+        sectorService.delete(id);
+        return "Sector deleted!";
     }
 }

@@ -22,4 +22,12 @@ public class SectorService {
         Optional<SectorModel> sectorById = sectorRepository.findById(id);
         return sectorById.orElse(null);
     }
+
+    public SectorModel sectorRegister(SectorModel sector) {
+        return sectorRepository.save(sector);
+    }
+
+    public void delete(long id) {
+        sectorRepository.deleteById(id);
+    }
 }
