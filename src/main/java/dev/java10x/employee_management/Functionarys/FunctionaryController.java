@@ -1,6 +1,7 @@
 package dev.java10x.employee_management.Functionarys;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +25,10 @@ public class FunctionaryController {
     @GetMapping("/list")
     public List<FunctionaryModel> listFunctionary() {
         return functionaryService.listFunctionary();
+    }
+
+    @GetMapping("/list/{id}")
+    public FunctionaryModel functionaryById(@PathVariable long id) {
+        return functionaryService.functionaryById(id);
     }
 }
