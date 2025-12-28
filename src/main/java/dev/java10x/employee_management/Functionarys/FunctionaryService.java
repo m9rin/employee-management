@@ -7,36 +7,45 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class FunctionaryService {
 
     private FunctionaryRepository functionaryRepository;
+    private FunctionaryMapper functionaryMapper;
     private SectorRepository sectorRepository;
 
-    public FunctionaryService(FunctionaryRepository functionaryRepository, SectorRepository sectorRepository) {
+    public FunctionaryService(FunctionaryRepository functionaryRepository, FunctionaryMapper functionaryMapper, SectorRepository sectorRepository) {
         this.functionaryRepository = functionaryRepository;
+        this.functionaryMapper = functionaryMapper;
         this.sectorRepository = sectorRepository;
     }
 
-    public List<FunctionaryModel> list() {
-        return functionaryRepository.findAll();
+    public List<FunctionaryDTO> list() {
+        List<FunctionaryModel> functionarys = functionaryRepository.findAll();
+        return functionarys.stream()
+                .map(functionaryMapper::map)
+                .collect(Collectors.toList());
     }
 
-    public FunctionaryModel listById(long id) {
+    public FunctionaryDTO listById(long id) {
         Optional<FunctionaryModel> functionaryById = functionaryRepository.findById(id);
-        return functionaryById.orElse(null);
+        return functionaryById.map(functionaryMapper::map).orElse(null);
     }
 
-    public FunctionaryModel register(FunctionaryModel functionary) {
-        return functionaryRepository.save(functionary);
+    public FunctionaryDTO register(FunctionaryDTO functionaryDTO)
+    {
+        FunctionaryModel functionary = functionaryMapper.map(functionaryDTO);
+        functionary = functionaryRepository.save(functionary);
+        return functionaryMapper.map(functionary);
     }
 
     public void delete(long id) {
         functionaryRepository.deleteById(id);
     }
 
-    public FunctionaryModel updated(Long id, Map<String, Object> fields) {
+    public FunctionaryDTO updated(Long id, Map<String, Object> fields) {
         FunctionaryModel functionary = functionaryRepository.findById(id).orElse(null);
 
         fields.forEach((field, value) -> {
@@ -55,6 +64,8 @@ public class FunctionaryService {
                 }
             }
         });
-        return functionaryRepository.save(functionary);
+
+        FunctionaryModel updated = functionaryRepository.save(functionary);
+        return functionaryMapper.map(updated);
     }
 }

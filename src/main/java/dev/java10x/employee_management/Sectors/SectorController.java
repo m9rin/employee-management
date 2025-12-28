@@ -16,17 +16,17 @@ public class SectorController {
     }
 
     @GetMapping("/list")
-    public List<SectorModel> list() {
+    public List<SectorDTO> list() {
         return sectorService.list();
     }
 
     @GetMapping("/list/{id}")
-    public SectorModel listById(@PathVariable long id) {
+    public SectorDTO listById(@PathVariable long id) {
         return sectorService.listById(id);
     }
 
     @PostMapping("/register")
-    public SectorModel register(@RequestBody SectorModel sector) {
+    public SectorDTO register(@RequestBody SectorDTO sector) {
         return sectorService.register(sector);
     }
 
@@ -37,7 +37,7 @@ public class SectorController {
     }
 
     @PatchMapping("/update/{id}")
-    public SectorModel sectorUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
+    public SectorDTO sectorUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
         return sectorService.update(id, fields);
     }
 }

@@ -16,18 +16,18 @@ public class FunctionaryController {
     }
 
     @GetMapping("/list")
-    public List<FunctionaryModel> list() {
+    public List<FunctionaryDTO> list() {
         return functionaryService.list();
     }
 
     @GetMapping("/list/{id}")
-    public FunctionaryModel listById(@PathVariable long id) {
+    public FunctionaryDTO listById(@PathVariable long id) {
         return functionaryService.listById(id);
     }
 
     @PostMapping("/register")
-    public FunctionaryModel register(@RequestBody FunctionaryModel functionary) {
-        return functionaryService.register(functionary);
+    public FunctionaryDTO register(@RequestBody FunctionaryDTO functionaryDTO) {
+        return functionaryService.register(functionaryDTO);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -37,7 +37,7 @@ public class FunctionaryController {
     }
 
     @PatchMapping("/update/{id}")
-    public FunctionaryModel update(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
+    public FunctionaryDTO update(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
         return functionaryService.updated(id, fields);
     }
 }
