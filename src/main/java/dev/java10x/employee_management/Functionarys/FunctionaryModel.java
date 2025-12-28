@@ -1,5 +1,6 @@
 package dev.java10x.employee_management.Functionarys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.java10x.employee_management.Sectors.SectorModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -43,5 +44,6 @@ public class FunctionaryModel {
 
     @ManyToOne
     @JoinColumn(name = "setor_id")
+    @JsonIgnore
     private SectorModel sectors;
 }
