@@ -3,6 +3,7 @@ package dev.java10x.employee_management.Sectors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/sectors")
@@ -33,5 +34,10 @@ public class SectorController {
     public String delete(@PathVariable long id) {
         sectorService.delete(id);
         return "Sector deleted!";
+    }
+
+    @PatchMapping("/update/{id}")
+    public SectorModel sectorUpdate(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
+        return sectorService.sectorUpdate(id, fields);
     }
 }

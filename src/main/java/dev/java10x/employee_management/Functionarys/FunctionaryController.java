@@ -3,6 +3,7 @@ package dev.java10x.employee_management.Functionarys;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/functionarys")
@@ -33,5 +34,10 @@ public class FunctionaryController {
     public String delete(@PathVariable long id) {
         functionaryService.delete(id);
         return "Functionary deleted!";
+    }
+
+    @PatchMapping("/update/{id}")
+    public FunctionaryModel update(@PathVariable Long id, @RequestBody Map<String, Object> fields) {
+        return functionaryService.updated(id, fields);
     }
 }

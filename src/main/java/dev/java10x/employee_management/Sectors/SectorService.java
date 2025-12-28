@@ -3,6 +3,7 @@ package dev.java10x.employee_management.Sectors;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -29,5 +30,17 @@ public class SectorService {
 
     public void delete(long id) {
         sectorRepository.deleteById(id);
+    }
+
+    public SectorModel sectorUpdate(Long id, Map<String, Object> fields) {
+        SectorModel sector = sectorRepository.findById(id).orElse(null);
+
+        fields.forEach((field, value) -> {
+            switch(field) {
+                case "name" -> sector.setName((String) value);
+                case "description" -> sector.setDescription((String) value);
+            }
+        });
+        return sectorRepository.save(sector);
     }
 }
