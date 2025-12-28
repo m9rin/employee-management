@@ -16,13 +16,13 @@ public class FunctionaryController {
     }
 
     @GetMapping("/list")
-    public List<FunctionaryModel> listFunctionary() {
-        return functionaryService.listFunctionary();
+    public List<FunctionaryModel> list() {
+        return functionaryService.list();
     }
 
     @GetMapping("/list/{id}")
-    public FunctionaryModel functionaryById(@PathVariable long id) {
-        return functionaryService.functionaryById(id);
+    public FunctionaryModel listById(@PathVariable long id) {
+        return functionaryService.listById(id);
     }
 
     @PostMapping("/register")

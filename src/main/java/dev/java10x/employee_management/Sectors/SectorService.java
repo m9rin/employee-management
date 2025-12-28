@@ -15,16 +15,16 @@ public class SectorService {
         this.sectorRepository = sectorRepository;
     }
 
-    public List<SectorModel> listSector() {
+    public List<SectorModel> list() {
         return sectorRepository.findAll();
     }
 
-    public SectorModel sectorById(long id) {
+    public SectorModel listById(long id) {
         Optional<SectorModel> sectorById = sectorRepository.findById(id);
         return sectorById.orElse(null);
     }
 
-    public SectorModel sectorRegister(SectorModel sector) {
+    public SectorModel register(SectorModel sector) {
         return sectorRepository.save(sector);
     }
 
@@ -32,7 +32,7 @@ public class SectorService {
         sectorRepository.deleteById(id);
     }
 
-    public SectorModel sectorUpdate(Long id, Map<String, Object> fields) {
+    public SectorModel update(Long id, Map<String, Object> fields) {
         SectorModel sector = sectorRepository.findById(id).orElse(null);
 
         fields.forEach((field, value) -> {

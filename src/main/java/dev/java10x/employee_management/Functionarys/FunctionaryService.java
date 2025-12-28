@@ -19,11 +19,11 @@ public class FunctionaryService {
         this.sectorRepository = sectorRepository;
     }
 
-    public List<FunctionaryModel> listFunctionary() {
+    public List<FunctionaryModel> list() {
         return functionaryRepository.findAll();
     }
 
-    public FunctionaryModel functionaryById(long id) {
+    public FunctionaryModel listById(long id) {
         Optional<FunctionaryModel> functionaryById = functionaryRepository.findById(id);
         return functionaryById.orElse(null);
     }
