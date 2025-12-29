@@ -1,6 +1,6 @@
-package dev.java10x.employee_management.Functionarys;
+package dev.java10x.employee_management.DTOs;
 
-import dev.java10x.employee_management.Sectors.SectorModel;
+import dev.java10x.employee_management.Models.SectorModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

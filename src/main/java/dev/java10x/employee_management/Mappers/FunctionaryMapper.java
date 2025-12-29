@@ -1,5 +1,7 @@
-package dev.java10x.employee_management.Functionarys;
+package dev.java10x.employee_management.Mappers;
 
+import dev.java10x.employee_management.DTOs.FunctionaryDTO;
+import dev.java10x.employee_management.Models.FunctionaryModel;
 import org.springframework.stereotype.Component;
 
 @Component

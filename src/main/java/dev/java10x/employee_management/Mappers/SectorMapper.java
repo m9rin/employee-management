@@ -1,5 +1,7 @@
-package dev.java10x.employee_management.Sectors;
+package dev.java10x.employee_management.Mappers;
 
+import dev.java10x.employee_management.DTOs.SectorDTO;
+import dev.java10x.employee_management.Models.SectorModel;
 import org.springframework.stereotype.Component;
 
 @Component

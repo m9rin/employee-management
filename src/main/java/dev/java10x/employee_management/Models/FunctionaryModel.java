@@ -1,7 +1,6 @@
-package dev.java10x.employee_management.Functionarys;
+package dev.java10x.employee_management.Models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.java10x.employee_management.Sectors.SectorModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
