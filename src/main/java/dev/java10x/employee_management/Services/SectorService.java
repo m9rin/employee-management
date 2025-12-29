@@ -1,7 +1,11 @@
-package dev.java10x.employee_management.Sectors;
+package dev.java10x.employee_management.Services;
 
-import dev.java10x.employee_management.common.Exceptions.BusinessException;
-import dev.java10x.employee_management.common.Exceptions.ResourceNotFoundException;
+import dev.java10x.employee_management.DTOs.SectorDTO;
+import dev.java10x.employee_management.Mappers.SectorMapper;
+import dev.java10x.employee_management.Models.SectorModel;
+import dev.java10x.employee_management.Repositories.SectorRepository;
+import dev.java10x.employee_management.Common.Exceptions.BusinessException;
+import dev.java10x.employee_management.Common.Exceptions.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
