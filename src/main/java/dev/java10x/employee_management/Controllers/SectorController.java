@@ -24,29 +24,21 @@ public class SectorController {
     }
 
     @GetMapping("/list/{id}")
-    public ResponseEntity<?> listById(@PathVariable long id) {
+    public ResponseEntity<SectorDTO> listById(@PathVariable long id) {
         SectorDTO sector = sectorService.listById(id);
-        if(sector != null) {
-            return ResponseEntity.ok(sector);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sector not found!");
-        }
+        return ResponseEntity.ok(sector);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody SectorDTO sectorDTO) {
-        SectorDTO sector = sectorService.register(sectorDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body("Registed sector: " + sector.getName() + sector.getDescription() + " ID: " + sector.getId());
+    public ResponseEntity<SectorDTO> register(@RequestBody SectorDTO sectorDTO) {
+        SectorDTO saved = sectorService.register(sectorDTO);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable long id) {
-        if (sectorService.listById(id) != null) {
-            sectorService.delete(id);
-            return ResponseEntity.ok("Sector id: " + id + " deleted");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sector not found!");
-        }
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+       sectorService.delete(id);
+       return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/update/{id}")
