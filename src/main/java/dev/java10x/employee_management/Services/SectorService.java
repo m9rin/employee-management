@@ -14,8 +14,8 @@ import java.util.stream.Collectors;
 @Service
 public class SectorService {
 
-    private SectorRepository sectorRepository;
-    private SectorMapper sectorMapper;
+    private final SectorRepository sectorRepository;
+    private final SectorMapper sectorMapper;
 
     public SectorService(SectorRepository sectorRepository, SectorMapper sectorMapper) {
         this.sectorRepository = sectorRepository;

@@ -19,9 +19,9 @@ import java.util.stream.Collectors;
 @Service
 public class FunctionaryService {
 
-    private FunctionaryRepository functionaryRepository;
-    private FunctionaryMapper functionaryMapper;
-    private SectorRepository sectorRepository;
+    private final FunctionaryRepository functionaryRepository;
+    private final FunctionaryMapper functionaryMapper;
+    private final SectorRepository sectorRepository;
 
     public FunctionaryService(FunctionaryRepository functionaryRepository, FunctionaryMapper functionaryMapper, SectorRepository sectorRepository) {
         this.functionaryRepository = functionaryRepository;

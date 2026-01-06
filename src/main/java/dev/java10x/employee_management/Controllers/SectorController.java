@@ -16,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/sectors")
 public class SectorController {
 
-    private SectorService sectorService;
+    private final SectorService sectorService;
 
     public SectorController(SectorService sectorService) {
         this.sectorService = sectorService;

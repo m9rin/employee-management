@@ -16,7 +16,7 @@ import java.util.Map;
 @RequestMapping("/functionarys")
 public class FunctionaryController {
 
-    private FunctionaryService functionaryService;
+    private final FunctionaryService functionaryService;
 
     public FunctionaryController(FunctionaryService functionaryService) {
         this.functionaryService = functionaryService;
